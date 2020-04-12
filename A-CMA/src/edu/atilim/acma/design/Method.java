@@ -46,6 +46,9 @@ public class Method extends Node {
 	private List<Reference> accessedFields;
 	
 	private List<Reference> instantiatedTypes;
+	private int lastLine = 1;
+	private int startLine = -1;
+	private int loc;
 	
 	public Method(String name, Design design) {
 		super(name, design);
@@ -92,6 +95,7 @@ public class Method extends Node {
 		ref.setDimension(dimension);
 		paramTypes.add(ref);
 	}
+	
 	
 	public boolean canBeMovedTo (Type type){
 		if(type == null || type.isAbstract() || type.isAnnotation() || type.isCompilerGenerated() || type.isInterface())
@@ -356,4 +360,20 @@ public class Method extends Node {
 	public String toString() {
 		return getSignature();
 	}
+
+	public void visitLineNumber(int line) {
+		if (startLine < 0) {
+			startLine = line;
+		}
+		this.lastLine = Math.max(line, lastLine);
+		this.loc = lastLine - startLine + 1;
+	}
+	public int getLoc() {
+		return loc;
+	}
+
+	public void setLoc(int l) {
+		this.loc=l;
+	}
+
 }

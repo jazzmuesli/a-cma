@@ -65,7 +65,7 @@ public abstract class Node implements Serializable {
 		return (flags & flag) > 0;
 	}
 	
-	int getFlags() {
+	public int getFlags() {
 		return flags;
 	}
 	

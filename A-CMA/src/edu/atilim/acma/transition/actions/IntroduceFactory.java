@@ -47,6 +47,7 @@ public class IntroduceFactory {
 			factory.setStatic(true);
 			factory.setAccess(m.getAccess());
 			factory.addInstantiatedType(t);
+			factory.visitLineNumber(m.getLoc());
 			factory.setReturnType(t);
 			
 			for (Parameter p : m.getParameters())

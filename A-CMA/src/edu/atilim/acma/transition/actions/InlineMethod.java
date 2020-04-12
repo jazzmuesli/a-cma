@@ -71,6 +71,8 @@ public class InlineMethod {
 				tm.addInstantiatedType(t);
 			
 			tm.removeCalledMethod(sm);
+			int combinedLoc = sm.getLoc()+tm.getLoc();
+			tm.setLoc(combinedLoc);
 			sm.remove();
 		}
 		

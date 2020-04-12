@@ -283,7 +283,7 @@ public class ClassReader implements ClassVisitor {
 
 		@Override
 		public void visitLineNumber(int arg0, Label arg1) {
-		
+			method.visitLineNumber(arg0);
 		}
 
 		@Override

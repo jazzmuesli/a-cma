@@ -33,6 +33,7 @@ public final class DesignCloner {
 			for (Method m : t.getMethods()) {
 				Method cloneMethod = cloneType.createMethod(m.getName());
 				cloneMethod.setFlags(m.getFlags());
+				cloneMethod.setLoc(m.getLoc());
 				
 				cloneMap.put(m, cloneMethod);
 			}

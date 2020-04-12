@@ -46,7 +46,7 @@ public final class ConfigManager {
 		runConfigs.add(config);
 	}
 	
-	static void add(MetricSummary normal) {
+	public static void add(MetricSummary normal) {
 		for (RunConfig rc : runConfigs) {
 			rc.getNormalMetrics().add(normal);
 		}

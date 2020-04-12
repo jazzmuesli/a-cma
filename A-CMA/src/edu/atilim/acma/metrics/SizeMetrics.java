@@ -37,6 +37,7 @@ public final class SizeMetrics {
 		
 		int totVis = 0;
 		int totStatic = 0;
+		int loc = 0;
 		
 		for (Method m : methods) {
 			if (m.isStatic())
@@ -48,10 +49,12 @@ public final class SizeMetrics {
 				row.increase("getters");
 			else if (m.isSetter())
 				row.increase("setters");
+			loc += loc;
 		}
 		
 		row.set("avrgMethodVisibility", totVis / row.get("numOps"));
 		row.set("staticness", totStatic / row.get("numOps"));
+		row.set("loc", loc);
 	}
 	
 	private static int getVisibility(Accessibility access) {
